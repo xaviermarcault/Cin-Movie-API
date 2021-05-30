@@ -60,4 +60,10 @@ public class MovieController {
 	public void supprimerFilm(@PathVariable int id) {
 		movieDao.deleteById(id);
 	}
+
+	// Retrouver des films avec année limite
+	@GetMapping(value = "test/films/{annee}")
+	public List<Movie> testParAnnee(@PathVariable int annee) {
+		return movieDao.findByYearGreaterThan(annee);
+	}
 }
